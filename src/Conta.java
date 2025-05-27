@@ -10,6 +10,7 @@ public abstract class Conta {
     protected double saldo;
     protected Cliente cliente;
     protected LocalDate dataUltimaAtualizacao;
+    protected int tipoConta; 
 
     public Conta(Cliente cliente) {
         this.numero = gerarNumeroUnico();
@@ -29,6 +30,12 @@ public abstract class Conta {
     }
 
     public abstract double CalcularRendimento();
+    
+    public abstract String getTipoContaNome();
+    
+    public int getTipoConta() {
+        return tipoConta;
+    }
 
     public boolean Sacar(double valor) {
         if (valor > 0 && valor <= saldo) {
@@ -45,7 +52,6 @@ public abstract class Conta {
         }
         return false;
     }
-
 
     public void AtualizarRendimento() {
         LocalDate hoje = LocalDate.now();

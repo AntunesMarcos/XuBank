@@ -3,6 +3,7 @@ public class ContaCorrente extends Conta {
 
     public ContaCorrente(Cliente cliente) {
         super(cliente);
+        this.tipoConta = 1; 
         this.limite = calcularLimite();
     }
 
@@ -37,6 +38,11 @@ public class ContaCorrente extends Conta {
     @Override
     public double CalcularRendimento() {
         return 0;
+    }
+    
+    @Override
+    public String getTipoContaNome() {
+        return "ContaCorrente";
     }
 
     public double getLimite() {

@@ -3,6 +3,7 @@ import java.util.Random;
 public class ContaInvestimento extends Conta {
     public ContaInvestimento(Cliente cliente) {
         super(cliente);
+        this.tipoConta = 4; 
     }
 
     @Override
@@ -39,5 +40,10 @@ public class ContaInvestimento extends Conta {
 
     public boolean VerificarRendimento() {
         return saldo > 0;
+    }
+    
+    @Override
+    public String getTipoContaNome() {
+        return "ContaInvestimento";
     }
 }

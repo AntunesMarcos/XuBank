@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,15 +63,17 @@ public class Main {
                     int tipo = sc.nextInt();
                     sc.nextLine();
                     Conta conta = null;
-                    switch (tipo) {
-                        case 1 -> conta = new ContaCorrente(cliente);
-                        case 2 -> conta = new ContaPoupanca(cliente);
-                        case 3 -> conta = new ContaRendaFixa(cliente);
-                        case 4 -> conta = new ContaInvestimento(cliente);
-                        default -> {
-                            System.out.println("Tipo inválido.");
-                            break;
-                        }
+                    if (tipo == 1) {
+                        conta = new ContaCorrente(cliente);
+                    } else if (tipo == 2) {
+                        conta = new ContaPoupanca(cliente);
+                    } else if (tipo == 3) {
+                        conta = new ContaRendaFixa(cliente);
+                    } else if (tipo == 4) {
+                        conta = new ContaInvestimento(cliente);
+                    } else {
+                        System.out.println("Tipo inválido.");
+                        break;
                     }
                     if (conta != null) {
                         cliente.AdicionarConta(conta);
@@ -88,10 +91,17 @@ public class Main {
                     System.out.print("Número da conta: ");
                     int numConta = sc.nextInt();
                     sc.nextLine();
-                    Conta conta = cliente.getContas().stream()
-                            .filter(c -> c.getNumero() == numConta)
-                            .findFirst()
-                            .orElse(null);
+                    
+                    
+                    Conta conta = null;
+                    List<Conta> contas = cliente.getContas();
+                    for (int i = 0; i < contas.size(); i++) {
+                        if (contas.get(i).getNumero() == numConta) {
+                            conta = contas.get(i);
+                            break;
+                        }
+                    }
+                    
                     if (conta == null) {
                         System.out.println("Conta não encontrada.");
                         break;
@@ -114,10 +124,17 @@ public class Main {
                     System.out.print("Número da conta: ");
                     int numConta = sc.nextInt();
                     sc.nextLine();
-                    Conta conta = cliente.getContas().stream()
-                            .filter(c -> c.getNumero() == numConta)
-                            .findFirst()
-                            .orElse(null);
+                    
+                    
+                    Conta conta = null;
+                    List<Conta> contas = cliente.getContas();
+                    for (int i = 0; i < contas.size(); i++) {
+                        if (contas.get(i).getNumero() == numConta) {
+                            conta = contas.get(i);
+                            break;
+                        }
+                    }
+                    
                     if (conta == null) {
                         System.out.println("Conta não encontrada.");
                         break;

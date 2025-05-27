@@ -3,6 +3,7 @@ import java.util.Random;
 public class ContaRendaFixa extends Conta {
     public ContaRendaFixa(Cliente cliente) {
         super(cliente);
+        this.tipoConta = 3; 
     }
 
     @Override
@@ -33,5 +34,10 @@ public class ContaRendaFixa extends Conta {
         saldo += rendimento;
         saldo -= 20;
         return rendimento;
+    }
+    
+    @Override
+    public String getTipoContaNome() {
+        return "ContaRendaFixa";
     }
 }
