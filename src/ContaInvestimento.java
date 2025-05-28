@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class ContaInvestimento extends Conta {
+public class ContaInvestimento extends Conta implements TaxaImposto {
     public ContaInvestimento(Cliente cliente) {
         super(cliente);
         this.tipoConta = 4; 
@@ -10,7 +10,7 @@ public class ContaInvestimento extends Conta {
     public boolean Sacar(double valor) {
         if (valor > 0 && valor <= saldo) {
             double rendimento = CalcularRendimento();
-            double imposto = rendimento > 0 ? rendimento * 0.225 : 0;
+            double imposto = aplicarImposto(rendimento);
             saldo -= (valor + imposto);
             return true;
         }
@@ -45,5 +45,11 @@ public class ContaInvestimento extends Conta {
     @Override
     public String getTipoContaNome() {
         return "ContaInvestimento";
+    }
+    
+    @Override
+    public double aplicarImposto(double rendimento) {
+       
+        return rendimento > 0 ? rendimento * 0.225 : 0;
     }
 }
