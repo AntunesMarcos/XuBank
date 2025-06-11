@@ -9,10 +9,10 @@ public class RelatorioCustodia {
 
     public void ImprimirRelatorio() {
         System.out.println("\n=== RELATÓRIO DE CUSTÓDIA ===");
-        System.out.println(RelatorioeCustodia());
+        System.out.println(RelatorioCustodia());
     }
 
-    public void CalcularCustodaPorTipo() {
+    public String RelatorioCustodia() {
         double totalCorrente = 0, totalPoupanca = 0, totalRendaFixa = 0, totalInvestimento = 0;
 
         for (Cliente cliente : clientes) {
@@ -20,7 +20,6 @@ public class RelatorioCustodia {
 
             for (Conta conta : contas) {
                 double saldo = conta.getSaldo();
-
                 if (!ValidationUtils.validarValor(saldo)) {
                     SecurityLogger.logError("SALDO_INVALIDO_RELATORIO",
                             "Saldo inválido encontrado na conta: " + conta.getNumero(), null);
@@ -28,46 +27,22 @@ public class RelatorioCustodia {
                 }
 
                 switch (conta.getTipoConta()) {
-                    case 1: totalCorrente += saldo; break;
-                    case 2: totalPoupanca += saldo; break;
-                    case 3: totalRendaFixa += saldo; break;
-                    case 4: totalInvestimento += saldo; break;
+                    case 1 -> totalCorrente += saldo;
+                    case 2 -> totalPoupanca += saldo;
+                    case 3 -> totalRendaFixa += saldo;
+                    case 4 -> totalInvestimento += saldo;
                 }
             }
         }
 
-        System.out.println("Custódia por tipo de conta:");
-        System.out.printf("Corrente: R$ %.2f%n", totalCorrente);
-        System.out.printf("Poupança: R$ %.2f%n", totalPoupanca);
-        System.out.printf("Renda Fixa: R$ %.2f%n", totalRendaFixa);
-        System.out.printf("Investimento: R$ %.2f%n", totalInvestimento);
+        return String.format(
+                "Saldo em custódia:\nCorrente: R$ %.2f\nPoupança: R$ %.2f\nRenda Fixa: R$ %.2f\nInvestimento: R$ %.2f",
+                totalCorrente, totalPoupanca, totalRendaFixa, totalInvestimento);
     }
 
-    public void CalcularSaldoMedioGeral() {
+    public String EncontrarClientesExtremos() {
         if (clientes.isEmpty()) {
-            System.out.println("Nenhum cliente cadastrado.");
-            return;
-        }
-
-        double saldoTotal = 0;
-        int totalContas = 0;
-
-        for (Cliente cliente : clientes) {
-            List<Conta> contas = cliente.getContas();
-            for (Conta conta : contas) {
-                saldoTotal += conta.getSaldo();
-                totalContas++;
-            }
-        }
-
-        double saldoMedio = totalContas > 0 ? saldoTotal / totalContas : 0;
-        System.out.printf("Saldo médio geral: R$ %.2f%n", saldoMedio);
-    }
-
-    public void EncontrarClientesExtremos() {
-        if (clientes.isEmpty()) {
-            System.out.println("Nenhum cliente cadastrado.");
-            return;
+            return "Nenhum cliente cadastrado.";
         }
 
         Cliente maior = clientes.get(0);
@@ -94,38 +69,7 @@ public class RelatorioCustodia {
             }
         }
 
-        System.out.printf("Cliente com maior saldo: %s - R$ %.2f%n",
-                ValidationUtils.sanitizarString(maior.getNome()), saldoMaior);
-        System.out.printf("Cliente com menor saldo: %s - R$ %.2f%n",
-                ValidationUtils.sanitizarString(menor.getNome()), saldoMenor);
-    }
-
-    private String RelatorioeCustodia() {
-        double totalCorrente = 0, totalPoupanca = 0, totalRendaFixa = 0, totalInvestimento = 0;
-
-        for (Cliente cliente : clientes) {
-            List<Conta> contas = cliente.getContas();
-
-            for (Conta conta : contas) {
-                double saldo = conta.getSaldo();
-
-                if (!ValidationUtils.validarValor(saldo)) {
-                    SecurityLogger.logError("SALDO_INVALIDO_RELATORIO",
-                            "Saldo inválido encontrado na conta: " + conta.getNumero(), null);
-                    continue;
-                }
-
-                switch (conta.getTipoConta()) {
-                    case 1: totalCorrente += saldo; break;
-                    case 2: totalPoupanca += saldo; break;
-                    case 3: totalRendaFixa += saldo; break;
-                    case 4: totalInvestimento += saldo; break;
-                }
-            }
-        }
-
-        return String.format(
-                "Saldo em custódia:\nCorrente: R$ %.2f\nPoupança: R$ %.2f\nRenda Fixa: R$ %.2f\nInvestimento: R$ %.2f",
-                totalCorrente, totalPoupanca, totalRendaFixa, totalInvestimento);
+        return String.format("Cliente com maior saldo: %s - R$ %.2f\nCliente com menor saldo: %s - R$ %.2f",
+                maior.getNome(), saldoMaior, menor.getNome(), saldoMenor);
     }
 }
