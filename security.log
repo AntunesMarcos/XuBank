@@ -1,2 +1,59 @@
 [2025-06-11 15:35:54] SECURITY: SISTEMA_INICIADO - Sistema XuBank iniciado
 [2025-06-11 15:35:54] SECURITY: APLICACAO_INICIADA - Aplica��o principal iniciada
+[2025-06-11 15:51:46] SECURITY: SISTEMA_INICIADO - Sistema XuBank iniciado
+[2025-06-11 15:51:46] SECURITY: APLICACAO_INICIADA - Aplica��o principal iniciada
+[2025-06-11 16:56:58] SECURITY: SISTEMA_INICIADO - Sistema XuBank iniciado
+[2025-06-11 16:56:58] SECURITY: APLICACAO_INICIADA - Aplicação principal iniciada
+[2025-06-11 16:57:04] SECURITY: APLICACAO_ENCERRADA - Aplicação encerrada
+[2025-06-11 17:03:33] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:04:26] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:04:26] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:04:26] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:04:26] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:04:26] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 955577 Valor: 1000,00
+[2025-06-11 17:04:26] SECURITY: SAQUE_REALIZADO - Saque realizado em conta corrente - Conta: 955577 Valor: 2500,00
+[2025-06-11 17:04:26] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:04:26] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:04:26] SECURITY: RENDA_ATUALIZADA - Renda atualizada para cliente: ***909
+[2025-06-11 17:04:26] SECURITY: LIMITE_ATUALIZADO - Limite atualizado - Conta: 357998 Novo limite: 4000,00
+[2025-06-11 17:04:44] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:05:35] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:05:35] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:05:35] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:05:35] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:05:35] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 790113 Valor: 1000,00
+[2025-06-11 17:05:35] SECURITY: SAQUE_REALIZADO - Saque realizado em conta corrente - Conta: 790113 Valor: 2500,00
+[2025-06-11 17:05:35] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:05:35] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:05:35] SECURITY: RENDA_ATUALIZADA - Renda atualizada para cliente: ***909
+[2025-06-11 17:05:35] SECURITY: LIMITE_ATUALIZADO - Limite atualizado - Conta: 487848 Novo limite: 4000,00
+[2025-06-11 17:06:45] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:06:45] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:06:45] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:06:45] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:06:45] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 691352 Valor: 1000,00
+[2025-06-11 17:06:45] SECURITY: SAQUE_REALIZADO - Saque realizado em conta corrente - Conta: 691352 Valor: 2500,00
+[2025-06-11 17:06:45] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:06:45] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:06:45] SECURITY: RENDA_ATUALIZADA - Renda atualizada para cliente: ***909
+[2025-06-11 17:06:45] SECURITY: LIMITE_ATUALIZADO - Limite atualizado - Conta: 436533 Novo limite: 4000,00
+[2025-06-11 17:06:57] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:06:57] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:06:57] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 610789 Valor: 1000,00
+[2025-06-11 17:06:57] SECURITY: SAQUE_REALIZADO - Saque realizado em conta corrente - Conta: 610789 Valor: 500,00
+[2025-06-11 17:06:57] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:06:57] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:06:57] SECURITY: SAQUE_INVALIDO - Tentativa de saque com valor inválido: -100.0
+[2025-06-11 17:06:57] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:06:57] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:06:57] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 907326 Valor: 1000,00
+[2025-06-11 17:09:53] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:09:53] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:09:53] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 422582 Valor: 1000,00
+[2025-06-11 17:09:53] SECURITY: SAQUE_REALIZADO - Saque realizado em conta corrente - Conta: 422582 Valor: 500,00
+[2025-06-11 17:09:53] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:09:53] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:09:53] SECURITY: SAQUE_INVALIDO - Tentativa de saque com valor inválido: -100.0
+[2025-06-11 17:09:53] SECURITY: CLIENTE_CRIADO - Cliente criado: ***909
+[2025-06-11 17:09:53] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***909
+[2025-06-11 17:09:53] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 434352 Valor: 1000,00
