@@ -1,5 +1,3 @@
-public class TaxaImposto {
-    public static double AplicarImposto(double valor) {
-        return valor * 0.05;
-    }
+public interface TaxaImposto {
+    double aplicarImposto(double rendimento) throws SecurityException;
 }

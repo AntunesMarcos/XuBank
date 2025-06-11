@@ -142,7 +142,10 @@ public abstract class Conta {
         return cliente;
     }
 
-    public LocalDate getDataUltimaAtualizacao() {
-        return dataUltimaAtualizacao;
+    protected void setSaldo(double novoSaldo) throws SecurityException {
+        if (!ValidationUtils.validarValor(novoSaldo)) {
+            throw new SecurityException("Valor de saldo inválido");
+        }
+        this.saldo = novoSaldo;
     }
 }
