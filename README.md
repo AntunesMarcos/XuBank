@@ -32,6 +32,7 @@ Apesar de não seguir uma arquitetura MVC tradicional, o projeto é estruturado 
 
 ## 👥 Autores
 
-- [Matheus Felipe]((https://github.com/MatheusFelipeCorrea))
-- [Marcos Antunes]((https://github.com/AntunesMarcos))
+- [Matheus Felipe](https://github.com/MatheusFelipeCorrea)
+- [Marcos Antunes](https://github.com/AntunesMarcos)
+
 
