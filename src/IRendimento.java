@@ -1,3 +1,3 @@
 public interface IRendimento {
-     double CalcularRendimento() throws SecurityException
+     double CalcularRendimento() throws SecurityException;
 }
