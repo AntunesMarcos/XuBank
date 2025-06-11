@@ -5,9 +5,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class XuBank {
     private final List<Cliente> clientes;
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+    private RelatorioCustodia relatorios;
 
     public XuBank() {
         clientes = new ArrayList<>();
+        relatorios = new RelatorioCustodia(clientes);
         SecurityLogger.logSecurityEvent("SISTEMA_INICIADO", "Sistema XuBank iniciado");
     }
 
@@ -111,35 +113,9 @@ public class XuBank {
     public String RelatorioCustodia() {
         lock.readLock().lock();
         try {
-            double totalCorrente = 0, totalPoupanca = 0, totalRendaFixa = 0, totalInvestimento = 0;
-
-            for (Cliente cliente : clientes) {
-                List<Conta> contas = cliente.getContas();
-
-                for (Conta conta : contas) {
-                    double saldo = conta.getSaldo();
-
-                    if (!ValidationUtils.validarValor(saldo)) {
-                        SecurityLogger.logError("SALDO_INVALIDO_RELATORIO",
-                                "Saldo inválido encontrado na conta: " + conta.getNumero(), null);
-                        continue;
-                    }
-
-                    switch (conta.getTipoConta()) {
-                        case 1: totalCorrente += saldo; break;
-                        case 2: totalPoupanca += saldo; break;
-                        case 3: totalRendaFixa += saldo; break;
-                        case 4: totalInvestimento += saldo; break;
-                    }
-                }
-            }
-
-            SecurityLogger.logSecurityEvent("RELATORIO_CUSTODIA", "Relatório de custódia gerado");
-
-            return String.format(
-                    "Saldo em custódia:\nCorrente: R$ %.2f\nPoupança: R$ %.2f\nRenda Fixa: R$ %.2f\nInvestimento: R$ %.2f",
-                    totalCorrente, totalPoupanca, totalRendaFixa, totalInvestimento);
-
+            relatorios = new RelatorioCustodia(clientes);
+            relatorios.ImprimirRelatorio();
+            return "Relatório de custódia gerado com sucesso.";
         } catch (Exception e) {
             SecurityLogger.logError("ERRO_RELATORIO_CUSTODIA",
                     "Erro ao gerar relatório de custódia", e);
@@ -152,40 +128,9 @@ public class XuBank {
     public String ClientesExtremos() {
         lock.readLock().lock();
         try {
-            if (clientes.isEmpty()) {
-                return "Nenhum cliente cadastrado.";
-            }
-
-            Cliente maior = clientes.get(0);
-            Cliente menor = clientes.get(0);
-            double saldoMaior = maior.GetSaldoTotal();
-            double saldoMenor = menor.GetSaldoTotal();
-
-            for (Cliente cliente : clientes) {
-                double saldoTotal = cliente.GetSaldoTotal();
-
-                if (!ValidationUtils.validarValor(saldoTotal)) {
-                    SecurityLogger.logError("SALDO_INVALIDO_EXTREMOS",
-                            "Saldo inválido para cliente: " + cliente.getCpfOfuscado(), null);
-                    continue;
-                }
-
-                if (saldoTotal > saldoMaior) {
-                    maior = cliente;
-                    saldoMaior = saldoTotal;
-                }
-                if (saldoTotal < saldoMenor) {
-                    menor = cliente;
-                    saldoMenor = saldoTotal;
-                }
-            }
-
-            SecurityLogger.logSecurityEvent("RELATORIO_EXTREMOS", "Relatório de clientes extremos gerado");
-
-            return String.format("Cliente com maior saldo: %s - R$ %.2f\nCliente com menor saldo: %s - R$ %.2f",
-                    ValidationUtils.sanitizarString(maior.getNome()), saldoMaior,
-                    ValidationUtils.sanitizarString(menor.getNome()), saldoMenor);
-
+            relatorios = new RelatorioCustodia(clientes);
+            relatorios.EncontrarClientesExtremos();
+            return "Relatório de clientes extremos gerado com sucesso.";
         } catch (Exception e) {
             SecurityLogger.logError("ERRO_RELATORIO_EXTREMOS",
                     "Erro ao gerar relatório de extremos", e);
@@ -202,5 +147,9 @@ public class XuBank {
         } finally {
             lock.readLock().unlock();
         }
+    }
+
+    public RelatorioCustodia getRelatorios() {
+        return new RelatorioCustodia(clientes);
     }
 }

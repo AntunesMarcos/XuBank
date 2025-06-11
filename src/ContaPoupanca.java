@@ -1,5 +1,7 @@
-public class ContaPoupanca extends Conta {
-    private static final double TAXA_RENDIMENTO = 0.006;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class ContaPoupanca extends Conta implements iRendimento {
 
     public ContaPoupanca(Cliente cliente) throws SecurityException {
         super(cliente);
@@ -9,22 +11,24 @@ public class ContaPoupanca extends Conta {
     @Override
     public double CalcularRendimento() throws SecurityException {
         try {
-            if (!ValidationUtils.validarValor(saldo)) {
-                throw new SecurityException("Saldo inválido para cálculo de rendimento");
-            }
-
-            double rendimento = saldo * TAXA_RENDIMENTO;
+            double rendimento = saldo * 0.005; // 0.5% ao mês
 
             if (!ValidationUtils.validarValor(rendimento)) {
                 throw new SecurityException("Rendimento calculado inválido");
             }
 
-            setSaldo(saldo + rendimento);
+            double imposto = TaxaImposto.AplicarImposto(rendimento);
+            double rendimentoLiquido = rendimento - imposto;
 
-            SecurityLogger.logSecurityEvent("RENDIMENTO_CALCULADO",
-                    "Rendimento calculado em poupança - Conta: " + numero + " Valor: " + String.format("%.2f", rendimento));
+            saldo += rendimentoLiquido;
 
-            return rendimento;
+            SecurityLogger.logSecurityEvent("RENDIMENTO_APLICADO",
+                    "Rendimento aplicado em poupança - Conta: " + numero +
+                            " Rendimento bruto: " + String.format("%.2f", rendimento) +
+                            " Imposto: " + String.format("%.2f", imposto) +
+                            " Rendimento líquido: " + String.format("%.2f", rendimentoLiquido));
+
+            return rendimentoLiquido;
         } catch (Exception e) {
             SecurityLogger.logError("ERRO_RENDIMENTO_POUPANCA",
                     "Erro ao calcular rendimento - Conta: " + numero, e);
@@ -35,5 +39,10 @@ public class ContaPoupanca extends Conta {
     @Override
     public String getTipoContaNome() {
         return "ContaPoupanca";
+    }
+
+    public double ObteranoMes() {
+        // Retorna o rendimento mensal da poupança (0.5%)
+        return 0.005;
     }
 }
