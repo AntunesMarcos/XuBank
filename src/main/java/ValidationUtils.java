@@ -15,12 +15,12 @@ public class ValidationUtils {
             return false;
         }
 
-        // Verificar se todos os dígitos são iguais
+        
         if (cpfLimpo.matches("(\\d)\\1{10}")) {
             return false;
         }
 
-        // Validar dígitos verificadores
+       
         return validarDigitosCPF(cpfLimpo);
     }
 
@@ -31,7 +31,7 @@ public class ValidationUtils {
                 digitos[i] = Integer.parseInt(cpf.substring(i, i + 1));
             }
 
-            // Validar primeiro dígito
+            
             int soma = 0;
             for (int i = 0; i < 9; i++) {
                 soma += digitos[i] * (10 - i);
@@ -43,7 +43,7 @@ public class ValidationUtils {
                 return false;
             }
 
-            // Validar segundo dígito
+            
             soma = 0;
             for (int i = 0; i < 10; i++) {
                 soma += digitos[i] * (11 - i);

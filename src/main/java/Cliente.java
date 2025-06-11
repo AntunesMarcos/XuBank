@@ -112,16 +112,15 @@ public class Cliente {
         }
     }
 
-    public double GetSaldoTotal() throws SecurityException {
+
+    public double getSaldoTotal() {
+
         lock.lock();
         try {
             double total = 0.0;
             for (Conta conta : contas) {
-                double saldo = conta.getSaldo();
-                if (!ValidationUtils.validarValor(saldo)) {
-                    throw new SecurityException("Saldo inválido encontrado na conta: " + conta.getNumero());
-                }
-                total += saldo;
+
+                total += conta.getSaldo();
             }
             return total;
         } finally {
@@ -142,7 +141,7 @@ public class Cliente {
         try {
             this.rendaMensal = rendaMensal;
 
-            // Atualizar limite das contas correntes
+
             for (Conta conta : contas) {
                 if (conta instanceof ContaCorrente) {
                     ((ContaCorrente) conta).atualizarLimite();
@@ -174,7 +173,7 @@ public class Cliente {
     public List<Conta> getContas() {
         lock.lock();
         try {
-            return new ArrayList<>(contas); // Retorna cópia para evitar modificação externa
+            return new ArrayList<>(contas);
         } finally {
             lock.unlock();
         }
