@@ -130,11 +130,7 @@ public abstract class Conta {
                 numero, saldo, dataUltimaAtualizacao);
     }
 
-    /**
-     * Gera um extrato simplificado do último mês, mostrando o saldo atual e a data da última atualização.
-     * Sem uma classe de Transação, este método não pode listar operações individuais.
-     * @return Uma String formatada com informações do extrato do último mês.
-     */
+
     public String GerarExtratoUltimoMes() {
         LocalDate umMesAtras = LocalDate.now().minusMonths(1);
         StringBuilder extrato = new StringBuilder();

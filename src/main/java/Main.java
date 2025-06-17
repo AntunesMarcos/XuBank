@@ -34,11 +34,11 @@ public class Main {
         System.out.println("3 - Depositar");
         System.out.println("4 - Sacar");
         System.out.println("5 - Listar contas de cliente");
-        System.out.println("6 - Relatório de custódia total"); // Nome alterado para ser mais específico
+        System.out.println("6 - Relatório de custódia total");
         System.out.println("7 - Clientes extremos");
         System.out.println("8 - Alterar senha");
         System.out.println("9 - Gerar Extrato do Último Mês");
-        System.out.println("10 - Relatório de Saldo Médio por Conta"); // NOVA OPÇÃO AQUI
+        System.out.println("10 - Relatório de Saldo Médio por Conta");
         System.out.println("0 - Sair");
         System.out.print("Escolha uma opção: ");
     }
@@ -64,11 +64,11 @@ public class Main {
                 case 3: depositar(); break;
                 case 4: sacar(); break;
                 case 5: listarContas(); break;
-                case 6: System.out.println(banco.RelatorioCustodia()); break; // Mantém a chamada existente
-                case 7: System.out.println(banco.ClientesExtremos()); break; // Mantém a chamada existente
+                case 6: System.out.println(banco.RelatorioCustodia()); break;
+                case 7: System.out.println(banco.ClientesExtremos()); break;
                 case 8: alterarSenha(); break;
                 case 9: gerarExtratoUltimoMes(); break;
-                case 10: System.out.println(banco.gerarRelatorioSaldoMedio()); break; // NOVA CHAMADA AQUI
+                case 10: System.out.println(banco.gerarRelatorioSaldoMedio()); break;
                 default: System.out.println("Opção inválida.");
             }
         } catch (Exception e) {
@@ -308,7 +308,7 @@ public class Main {
 
             return conta;
         } catch (InputMismatchException e) {
-            sc.nextLine(); // Limpar buffer
+            sc.nextLine();
             System.out.println("Número de conta inválido.");
             return null;
         }

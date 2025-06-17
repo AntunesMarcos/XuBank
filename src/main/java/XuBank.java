@@ -126,7 +126,7 @@ public class XuBank {
         }
     }
 
-    // Dentro da sua classe XuBank (exemplo)
+
     public String gerarRelatorioSaldoMedio() {
         RelatorioCustodia relatorio = new RelatorioCustodia(this.clientes); // Assumindo que XuBank tem uma lista de clientes
         return relatorio.gerarRelatorioSaldoMedio();

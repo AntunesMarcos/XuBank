@@ -93,21 +93,18 @@ public class RelatorioCustodia {
     }
 
     
-    /**
-     * Gera um relatório do saldo médio por tipo de conta (Corrente, Poupança, Renda Fixa, Investimento).
-     * @return Uma String formatada com os saldos médios de cada tipo de conta.
-     */
+
     public String gerarRelatorioSaldoMedio() {
         try {
-            // Mapas para armazenar a soma dos saldos e a contagem de contas por tipo
+
             Map<Integer, Double> saldosTotaisPorTipo = new HashMap<>();
             Map<Integer, Integer> contagemContasPorTipo = new HashMap<>();
 
-            // Inicializa os mapas com 0 para todos os tipos de conta
-            saldosTotaisPorTipo.put(1, 0.0); // Corrente
-            saldosTotaisPorTipo.put(2, 0.0); // Poupança
-            saldosTotaisPorTipo.put(3, 0.0); // Renda Fixa
-            saldosTotaisPorTipo.put(4, 0.0); // Investimento
+
+            saldosTotaisPorTipo.put(1, 0.0);
+            saldosTotaisPorTipo.put(2, 0.0);
+            saldosTotaisPorTipo.put(3, 0.0);
+            saldosTotaisPorTipo.put(4, 0.0);
 
             contagemContasPorTipo.put(1, 0);
             contagemContasPorTipo.put(2, 0);
@@ -135,23 +132,22 @@ public class RelatorioCustodia {
             StringBuilder relatorio = new StringBuilder();
             relatorio.append("--- Saldo Médio por Tipo de Conta ---\n");
 
-            // Calcula e formata o saldo médio para cada tipo de conta
-            // Tipo 1: Corrente
+
             double saldoMedioCorrente = contagemContasPorTipo.get(1) > 0 ?
                     saldosTotaisPorTipo.get(1) / contagemContasPorTipo.get(1) : 0.0;
             relatorio.append(String.format("Corrente: R$ %.2f (Baseado em %d conta(s))\n", saldoMedioCorrente, contagemContasPorTipo.get(1)));
 
-            // Tipo 2: Poupança
+
             double saldoMedioPoupanca = contagemContasPorTipo.get(2) > 0 ?
                     saldosTotaisPorTipo.get(2) / contagemContasPorTipo.get(2) : 0.0;
             relatorio.append(String.format("Poupança: R$ %.2f (Baseado em %d conta(s))\n", saldoMedioPoupanca, contagemContasPorTipo.get(2)));
 
-            // Tipo 3: Renda Fixa
+
             double saldoMedioRendaFixa = contagemContasPorTipo.get(3) > 0 ?
                     saldosTotaisPorTipo.get(3) / contagemContasPorTipo.get(3) : 0.0;
             relatorio.append(String.format("Renda Fixa: R$ %.2f (Baseado em %d conta(s))\n", saldoMedioRendaFixa, contagemContasPorTipo.get(3)));
 
-            // Tipo 4: Investimento
+
             double saldoMedioInvestimento = contagemContasPorTipo.get(4) > 0 ?
                     saldosTotaisPorTipo.get(4) / contagemContasPorTipo.get(4) : 0.0;
             relatorio.append(String.format("Investimento: R$ %.2f (Baseado em %d conta(s))\n", saldoMedioInvestimento, contagemContasPorTipo.get(4)));
