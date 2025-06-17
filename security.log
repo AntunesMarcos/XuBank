@@ -179,3 +179,22 @@ Stack trace: Saldo inválido encontrado na conta: 280550
 [2025-06-11 18:33:53] SECURITY: RELATORIO_EXTREMOS - Relatório de clientes extremos gerado
 [2025-06-11 18:33:58] ERROR: SALDO_INVALIDO_RELATORIO - Saldo inválido encontrado na conta: 573789
 [2025-06-11 18:33:58] SECURITY: RELATORIO_CUSTODIA - Relatório de custódia gerado
+[2025-06-17 16:17:24] SECURITY: SISTEMA_INICIADO - Sistema XuBank iniciado
+[2025-06-17 16:17:24] SECURITY: APLICACAO_INICIADA - Aplicação principal iniciada
+[2025-06-17 16:17:55] ERROR: ERRO_CADASTRO - Erro ao cadastrar cliente: Senha deve ter pelo menos 8 caracteres, incluindo maiúscula, minúscula, número e caractere especial
+Stack trace: Senha deve ter pelo menos 8 caracteres, incluindo maiúscula, minúscula, número e caractere especial
+[2025-06-17 16:18:18] SECURITY: CLIENTE_CRIADO - Cliente criado: ***647
+[2025-06-17 16:18:18] SECURITY: CLIENTE_CADASTRADO - Cliente cadastrado: ***647
+[2025-06-17 16:18:35] ERROR: ERRO_CADASTRO - Erro ao cadastrar cliente: CPF inválido
+Stack trace: CPF inválido
+[2025-06-17 16:18:49] SECURITY: LOGIN_SUCESSO - Login realizado: ***647
+[2025-06-17 16:18:52] SECURITY: CONTA_CRIADA - Conta criada para cliente: ***647
+[2025-06-17 16:18:52] SECURITY: CONTA_ADICIONADA - Conta adicionada - Cliente: ***647 Tipo: ContaCorrente
+[2025-06-17 16:19:04] SECURITY: LOGIN_SUCESSO - Login realizado: ***647
+[2025-06-17 16:19:21] SECURITY: LOGIN_SUCESSO - Login realizado: ***647
+[2025-06-17 16:19:26] SECURITY: DEPOSITO_REALIZADO - Depósito realizado em conta corrente - Conta: 787144 Valor: 5000,00
+[2025-06-17 16:19:40] SECURITY: LOGIN_SUCESSO - Login realizado: ***647
+[2025-06-17 16:20:01] SECURITY: LOGIN_SUCESSO - Login realizado: ***647
+[2025-06-17 16:20:06] SECURITY: SAQUE_REALIZADO - Saque realizado em conta corrente - Conta: 787144 Valor: 2000,00
+[2025-06-17 16:20:13] SECURITY: RELATORIO_SALDO_MEDIO - Relatório de saldo médio gerado
+[2025-06-17 16:20:31] SECURITY: LOGIN_SUCESSO - Login realizado: ***647
